@@ -4,17 +4,17 @@
         <div class="well bs-component">
           <form class="form-horizontal">
             <fieldset>
-              <legend>{{hook}} - Ebacs Login</legend>
+              <legend>Ebacs Login</legend>
               <div class="form-group">
                 <label for="textArea" class="col-lg-2 control-label">Username</label>
                 <div class="col-lg-10">
-                  <textarea class="form-control" rows="1" id="username"></textarea>
+                  <input class="form-control" id="input_email" placeholder="Username" type="email"></input>
                 </div>
               </div>
               <div class="form-group">
                 <label for="textArea" class="col-lg-2 control-label">Password</label>
                 <div class="col-lg-10">
-                  <textarea class="form-control" rows="1" id="password"></textarea>
+                  <input class="form-control" id="input_password" placeholder="Password" type="password"></input>
                 </div>
               </div>
               <div class="form-group">

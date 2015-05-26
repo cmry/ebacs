@@ -496,6 +496,7 @@ h2 code,h3 code,h4 code{
 .bs-docs-header,.bs-docs-masthead{
     position:relative;
     padding:30px 0;
+    height:300px;
     color:#cdbfe3;
     text-align:center;
     text-shadow:0 1px 0 rgba(0,0,0,.1);
@@ -505,8 +506,10 @@ h2 code,h3 code,h4 code{
     background-image:-o-linear-gradient(top,#563d7c 0,#6f5499 100%);
     background-image:linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0); */
-    background-image:-moz-linear-gradient(center top , #2F2F2F 0%, #1B1A1A 100%) repeat scroll 0% 0% #2F2F2F;
-    background-repeat:repeat-x
+    /*background-image:-moz-linear-gradient(center top , #2F2F2F 0%, #1B1A1A 100%) repeat scroll 0% 0% #2F2F2F;*/
+    background-image:url("http://bpox.be/onewebstatic/c641cdc3cd-Antwerpen%20poster%20600x1800.jpg");
+    background-size: 100% auto;
+    background-repeat:repeat-y;
 }
 
 .bs-docs-masthead .bs-docs-booticon{
@@ -520,6 +523,7 @@ h2 code,h3 code,h4 code{
 }
 
 .bs-docs-masthead .lead{
+    padding:120px 0px;
     margin:0 auto 30px;
     font-size:20px;
     color:#fff
