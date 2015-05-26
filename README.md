@@ -1,0 +1,2 @@
+# ebacs
+Minimalistic Conference Manager
