@@ -3,7 +3,7 @@ from cork import Cork
 from utils import skeleton
 
 
-aaa = Cork('cork_conf', email_sender='c.emmery@outlook.com',
+aaa = Cork('users', email_sender='c.emmery@outlook.com',
            smtp_url='smtp://smtp.magnet.ie')
 authorize = aaa.make_auth_decorator(fail_redirect='/login', role="user")
 

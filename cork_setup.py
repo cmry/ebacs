@@ -3,7 +3,7 @@ from cork import Cork
 
 
 def populate_conf_directory():
-    cork = Cork('cork_conf', initialize=True)
+    cork = Cork('users', initialize=True)
 
     cork._store.roles['admin'] = 100
     cork._store.roles['board'] = 60

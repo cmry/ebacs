@@ -16,8 +16,6 @@ app = SessionMiddleware(bottle.app(), session_opts)
 
 
 def main():
-
-    # Start the Bottle webapp
     bottle.debug(True)
     bottle.run(app=app, host='localhost', port=8085,
                quiet=False, reloader=True)
