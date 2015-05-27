@@ -1,5 +1,6 @@
 import bottle
 from corks import aaa, authorize
+from utils import skeleton
 
 
 @bottle.route('/static/<filename>')
@@ -7,7 +8,7 @@ def server_static(filename):
     return bottle.static_file(filename, root='static')
 
 
-# Editor page
+# Board page
 
 @bottle.route('/')
 @authorize()
@@ -31,3 +32,11 @@ def admin():
         users=aaa.list_users(),
         roles=aaa.list_roles()
     )
+
+
+# Submission page
+
+@bottle.route('/submit')
+# @authorize(role="user", fail_redirect="/sorry_page")
+def submit():
+    return skeleton(bottle.template('submit_form'))
