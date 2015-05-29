@@ -1,6 +1,6 @@
 import bottle
 from corks import aaa, authorize
-from utils import db, skeleton, post_get
+from utils import db, tex, skeleton, post_get
 from objects import settings, Submission
 
 
@@ -19,7 +19,7 @@ def get_favicon():
 @bottle.route('/')
 # @authorize()
 def index():
-    return skeleton(bottle.template('welcome')) 
+    return skeleton(bottle.template('welcome'))
 
     """Only authenticated users can see this"""
     # session = bottle.request.environ.get('beaker.session')
@@ -54,7 +54,7 @@ def submit():
     reference_code = hash(post_get('title') +
                           str(post_get('authors')) +
                           settings['salt'])
-    db.save(Submission({
+    subm = Submission({
         'reference_code': reference_code,
         'title': post_get('title'),
         'authors': post_get('authors'),
@@ -65,13 +65,18 @@ def submit():
         'figurl': post_get('figurl'),
         'table': post_get('table'),
         'caption': post_get('caption')
-    }))
+    })
+    db.save(subm)
+    tex.parse(subm)
     return skeleton(bottle.template('submit_message', var=reference_code))
 
 
 # View submission
 def check_submission(reference_code):
-    q = db.search('subm', {'reference_code': int(reference_code)})
+    try:
+        q = db.search('subm', {'reference_code': int(reference_code)})
+    except Exception:
+        return None
     return q
 
 
@@ -88,11 +93,3 @@ def view():
         return skeleton(bottle.template('edit_form', var=entry))
     else:
         return check_code(var="Sorry, your code seems invalid!")
-
-
-# Edit page
-
-@bottle.route('/view/<id>')
-@authorize(role="writer", fail_redirect="/sorry_page")
-def edit():
-    pass

@@ -2,9 +2,9 @@
   <div class="row">
     <div class="col-lg-6 col-lg-offset-3">
       <div class="well bs-component">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="/edit" method="post">
           <fieldset>
-            <legend>New Abstract</legend>
+            <legend>Your Abstract</legend>
             <div class="form-group">
               <label for="title" class="col-lg-2 control-label">Title</label>
               <div class="col-lg-10">

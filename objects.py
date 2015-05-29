@@ -9,6 +9,7 @@ class Conference:
 
     def __init__(self):
         self.name = settings['conference_name']
+        self.lead = settings['conference_subtitle']
         self.location = settings['location']
 
     def func():
@@ -38,9 +39,6 @@ class Database:
         elif table == 'subm':
             doc = Submission
         try:
-            print(doc)
-            print(query)
-            print(self.backend.get(doc, query))
             return self.backend.get(doc, query)
         except doc.DoesNotExist:
             return None

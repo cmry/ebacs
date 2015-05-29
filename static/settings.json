@@ -1,5 +1,6 @@
 {
-    "conference_name": "My Conference '99",
+    "conference_name": "TMAC'99",
+    "conference_subtitle": "",
     "location": "The Village",
     "database_location": "./my_db",
     "salt": "thisisalongenoughslatcombinationasanexamplenoneedtorememberitanyways"
