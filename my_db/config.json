@@ -1,0 +1,1 @@
+{"serializer_class": "json", "store_class": "transactional", "index_class": "transactional", "version": "0.2.12", "index_store_class": "basic", "autocommit": false, "indexes": {"submission": {"pk": {"id": "60afa9718fb749759f129745cf366d3b", "key": "pk"}}, "user": {"pk": {"id": "6f234d73f9c647daabd39bd0be50c10f", "key": "pk"}}}}
