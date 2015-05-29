@@ -1,13 +1,7 @@
 import bottle
 from corks import aaa, authorize
-from utils import skeleton
-from objects import settings, Submission, Database
-
-db = Database()
-
-
-def post_get(name, default=''):
-    return bottle.request.POST.get(name, default)
+from utils import db, skeleton, post_get
+from objects import settings, Submission
 
 
 @bottle.route('/static/<filename>')
@@ -23,8 +17,10 @@ def get_favicon():
 # Board page
 
 @bottle.route('/')
-@authorize()
+# @authorize()
 def index():
+    return skeleton(bottle.template('welcome')) 
+
     """Only authenticated users can see this"""
     # session = bottle.request.environ.get('beaker.session')
     # aaa.require(fail_redirect='/login')
@@ -61,36 +57,35 @@ def submit():
     db.save(Submission({
         'reference_code': reference_code,
         'title': post_get('title'),
-        'authors': post_get('authors').split('; '),
-        'affiliations': post_get('affils').split('; '),
-        'contact': post_get('contact').split('; '),
+        'authors': post_get('authors'),
+        'affiliations': post_get('affils'),
+        'contact': post_get('contact'),
         'text': post_get('text'),
         'references': post_get('ref'),
         'figurl': post_get('figurl'),
         'table': post_get('table'),
         'caption': post_get('caption')
-        }))
+    }))
     return skeleton(bottle.template('submit_message', var=reference_code))
 
 
 # View submission
 def check_submission(reference_code):
-    print("I:", str(reference_code))
-    return db.search('subm', {'reference_code': reference_code})
+    q = db.search('subm', {'reference_code': int(reference_code)})
+    return q
 
 
 @bottle.route('/view')
 def check_code(var=None):
-    print("V")
     return skeleton(bottle.template('code_form', var=var))
 
 
 @bottle.post('/view')
 def view():
     reference_code = post_get('reference_code')
-    if check_submission(reference_code):
-        info = reference_code
-        return skeleton(bottle.template('edit_form'), var=info)
+    entry = check_submission(reference_code)
+    if entry:
+        return skeleton(bottle.template('edit_form', var=entry))
     else:
         return check_code(var="Sorry, your code seems invalid!")
 

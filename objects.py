@@ -38,6 +38,9 @@ class Database:
         elif table == 'subm':
             doc = Submission
         try:
+            print(doc)
+            print(query)
+            print(self.backend.get(doc, query))
             return self.backend.get(doc, query)
         except doc.DoesNotExist:
             return None

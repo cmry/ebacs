@@ -8,13 +8,13 @@
             <div class="form-group">
               <label for="textArea" class="col-lg-2 control-label">Username</label>
               <div class="col-lg-10">
-                <input class="form-control" id="input_email" placeholder="Username" type="email"></input>
+                <input class="form-control" name="input_email" placeholder="Username" type="email"></input>
               </div>
             </div>
             <div class="form-group">
               <label for="textArea" class="col-lg-2 control-label">Password</label>
               <div class="col-lg-10">
-                <input class="form-control" id="input_password" placeholder="Password" type="password"></input>
+                <input class="form-control" name="input_password" placeholder="Password" type="password"></input>
               </div>
             </div>
             <div class="form-group">
@@ -24,7 +24,7 @@
             </div>
           </fieldset>
         </form>
-      <div style="display: none;" id="source-button" class="btn btn-primary btn-xs">&lt; &gt;</div></div>
+      <div style="display: none;" name="source-button" class="btn btn-primary btn-xs">&lt; &gt;</div></div>
     </div>    
   </div>
 </div>

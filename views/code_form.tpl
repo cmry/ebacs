@@ -14,7 +14,7 @@
             <div class="form-group">
               <label for="reference_code" class="col-lg-2 control-label">Code</label>
               <div class="col-lg-10">
-                <input class="form-control" id="reference_code" placeholder="Your reference code" type="text"></input>
+                <input class="form-control" name="reference_code" placeholder="Your reference code" type="text"></input>
               </div>
             </div>
             <div class="form-group">
@@ -24,7 +24,7 @@
             </div>
           </fieldset>
         </form>
-      <div style="display: none;" id="source-button" class="btn btn-primary btn-xs">&lt; &gt;</div></div>
+      <div style="display: none;" name="source-button" class="btn btn-primary btn-xs">&lt; &gt;</div></div>
     </div>    
   </div>
 </div>

@@ -1,3 +1,7 @@
+a, a:active,a:hover,a:focus{
+    color:#563d7c;
+}
+
 .hll{
     background-color:#ffc
 }
@@ -311,7 +315,8 @@
  * Licensed under the Creative Commons Attribution 3.0 Unported License. For
  * details, see http://creativecommons.org/licenses/by/3.0/.
  */body{
-    position:relative
+    position:relative;
+    overflow-y: scroll
 }
 
 .table code{
@@ -506,7 +511,7 @@ h2 code,h3 code,h4 code{
     background-image:linear-gradient(to bottom,#563d7c 0,#6f5499 100%);
     filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#563d7c', endColorstr='#6F5499', GradientType=0); */
     background-image:-moz-linear-gradient(center top , #2F2F2F 0%, #1B1A1A 100%) repeat scroll 0% 0% #2F2F2F;
-    background-repeat:repeat-x
+    background-repeat:repeat-x;
 }
 
 .bs-docs-masthead .bs-docs-booticon{
@@ -547,7 +552,8 @@ h2 code,h3 code,h4 code{
 @media (min-width:768px){
     .bs-docs-masthead{
         background-image:url("http://bpox.be/onewebstatic/1c9de8ea1f-Antwerpen%20poster%20600x1800.jpg");
-        background-repeat:repeat-x;
+        background-position:center top;
+        background-repeat:no-repeat;
         padding:140px 0
     }
 
