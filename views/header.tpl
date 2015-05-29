@@ -1,5 +1,5 @@
 <!-- Masthead -->
 
 <main class="bs-docs-masthead" id="content" role="main" tabindex="-1">
-    <p class="lead"> {{ hook }} </p>
+    <h1> {{ hook }} </h1>
 </main>

@@ -2,9 +2,10 @@ import bottle
 from objects import Conference
 
 
-def skeleton(content_hook, hook='front'):
+def skeleton(hook, layout='front', var=None):
     return bottle.template(
-        hook,
-        content=content_hook,
-        header=bottle.template('header', hook=Conference().name)
+        layout,
+        content=hook,
+        header=bottle.template('header', hook=Conference().name),
+        var=var
     )

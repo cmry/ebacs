@@ -2,42 +2,71 @@
   <div class="row">
     <div class="col-lg-6 col-lg-offset-3">
       <div class="well bs-component">
-        <form class="form-horizontal">
+        <form class="form-horizontal" action="/submit" method="post">
           <fieldset>
-            <legend>Submission</legend>
+            <legend>New Abstract</legend>
             <div class="form-group">
-              <label for="Title" class="col-lg-2 control-label">Title</label>
+              <label for="title" class="col-lg-2 control-label">Title</label>
               <div class="col-lg-10">
                 <input class="form-control" id="title" placeholder="This is an Example Title Format" type="text"></input>
               </div>
             </div>
             <div class="form-group">
-              <label for="Authors" class="col-lg-2 control-label">Authors</label>
+              <label for="authors" class="col-lg-2 control-label">Authors</label>
               <div class="col-lg-10">
-                <input class="form-control" id="authors" placeholder="John Doe, Marie Doe, Will Doe" type="text"></input>
+                <input class="form-control" id="authors" placeholder="John Doe*; Marie Doe; Will Doe" type="text"></input>
+                <span class="help-block">Add an asterisk to the name of the corresponding author. Please use ; (semicolon) as a delimiter where the example does.</span>
               </div>
             </div>
             <div class="form-group">
-              <label for="Text" class="col-lg-2 control-label">Text</label>
+              <label for="affils" class="col-lg-2 control-label">Affiliations</label>
               <div class="col-lg-10">
-                <input class="form-control" id="text" placeholder="Abstract text (can include LaTeX commands)..." type="text"></input>
+                <input class="form-control" id="affils" placeholder="CLiPS, University of Antwerp; TiCC, Tilburg University; etc." type="text"></input>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="contact" class="col-lg-2 control-label">Contact</label>
+              <div class="col-lg-10">
+                <input class="form-control" id="contact" placeholder="mail@email.com; mail2@email.com; etc." type="text"></input>
+                <span class="help-block">Use the same order as the authors for both affiliations and contact.</span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="text" class="col-lg-2 control-label">Abstract</label>
+              <div class="col-lg-10">
+                <textarea class="form-control" rows="10" id="text" placeholder="Abstract text. Can include LaTeX commands, so please don't use \ (backslash) in running text; your abstract might not compile."></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="ref" class="col-lg-2 control-label">References</label>
+              <div class="col-lg-10">
+                <textarea class="form-control" rows="6" id="ref" placeholder="BiBTeX references, labels have to correspond to those used in the \cite commands."></textarea>
+                <span class="help-block">BibTeX refrences can for example be found in Google Scholar under 'cite'.</span>
+              </div>
+            </div>
+            <legend>Objects</legend>
+            <span class="help-block">Leave any field empty if not applicable.</span>
+            <div class="form-group">
+              <label for="figurl" class="col-lg-2 control-label">Figure</label>
+              <div class="col-lg-10">
+                <input class="form-control" id="figurl" placeholder="URL to some PNG or JPG." type="text"></input>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="table" class="col-lg-2 control-label">Tabular</label>
+              <div class="col-lg-10">
+                <textarea class="form-control" rows="6" id="ref" placeholder="LaTeX code for tabular, no need to specify the table environment!"></textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="FigCap" class="col-lg-2 control-label">Caption</label>
+              <div class="col-lg-10">
+                <input class="form-control" id="figcap" placeholder="This describes the figure in a full sentence." type="text"></input>
               </div>
             </div>
             <div class="form-group">
               <div class="col-lg-10 col-lg-offset-2">
                 <button type="submit" class="btn btn-primary">Submit</button>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="FigURL" class="col-lg-2 control-label">Figure URL</label>
-              <div class="col-lg-10">
-                <input class="form-control" id="figurl" placeholder="URL to some PNG or JPG" type="text"></input>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="FigCap" class="col-lg-2 control-label">Figure Caption</label>
-              <div class="col-lg-10">
-                <input class="form-control" id="figcap" placeholder="This describes the figure in a full sentence." type="text"></input>
               </div>
             </div>
           </fieldset>

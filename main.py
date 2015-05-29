@@ -14,10 +14,9 @@ session_opts = {
 
 app = SessionMiddleware(bottle.app(), session_opts)
 
-
 def main():
     bottle.debug(True)
-    bottle.run(app=app, host='localhost', port=8085,
+    bottle.run(app=app, host='localhost', port=8086,
                quiet=False, reloader=True)
 
 if __name__ == "__main__":
