@@ -1,1 +1,0 @@
-{"indexes": {"submission": {"pk": {"id": "1cf2ce97a52446779413b66adc8fae34", "key": "pk"}}, "user": {"pk": {"id": "13fb782a246240a883ea52a11a874800", "key": "pk"}}}, "autocommit": false, "store_class": "transactional", "version": "0.2.12", "serializer_class": "json", "index_store_class": "basic", "index_class": "transactional"}

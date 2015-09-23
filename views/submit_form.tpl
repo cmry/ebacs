@@ -34,6 +34,11 @@
             <div class="form-group">
               <label for="text" class="col-lg-2 control-label">Abstract</label>
               <div class="col-lg-10">
+                <textarea class="form-control" rows="10" name="text" placeholder="Abstract text. Please do not break sentences with a newline, or use \ (backslash) in running text; your abstract might not compile."></textarea>
+                <span class="help-block">You can provide references in a non-square bracket notation as such: <br /><br />abstract text...<br /><br />References:<br />first reference<br />second reference<br />etc.</span>
+              </div>
+            </div>
+              <!--
                 <textarea class="form-control" rows="10" name="text" placeholder="Abstract text. Can include LaTeX commands, so please don't use \ (backslash) in running text; your abstract might not compile."></textarea>
               </div>
             </div>
@@ -63,7 +68,8 @@
               <div class="col-lg-10">
                 <input class="form-control" name="figcap" placeholder="This describes the figure in a full sentence." type="text"></input>
               </div>
-            </div>
+            </div> -->
+            <legend></legend>
             <div class="form-group">
               <div class="col-lg-10 col-lg-offset-2">
                 <button type="submit" class="btn btn-primary">Submit</button>

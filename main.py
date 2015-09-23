@@ -1,6 +1,6 @@
 import bottle
 from beaker.middleware import SessionMiddleware
-from routes import *
+from shelf.routes import *
 
 session_opts = {
     'session.cookie_expires': True,
@@ -13,6 +13,7 @@ session_opts = {
 
 
 app = SessionMiddleware(bottle.app(), session_opts)
+
 
 def main():
     bottle.debug(True)

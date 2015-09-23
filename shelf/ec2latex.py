@@ -1,29 +1,30 @@
-
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
-__author__ = 'chris'
-__version__ = '05.15'
-
 import xml.etree.ElementTree as ET
 from collections import OrderedDict as OD
 from copy import deepcopy
 from re import findall
 from json import loads
 
+__author__ = 'chris'
+__version__ = '05.15'
+
 bib = {}
-retr = [28, 8, 18, 20, 43, 97]
+retr = []  # add id numbers which have retracted
 
 
 def sanitize(texs, istex=None):
     """
     Escapes any colliding characters with LaTeX, correct stupid unicode
     characters, and do a clean-up on some other user/system errors.
+
     :param texs: str abstract (or any) text in unicode
     :return: str sanitized text ready for LaTeX compiling
     """
+    cust = {  # custom replacements go here
+            'htttp':                                        u'http',
             # LaTeX collides
-    cust = {'{':                                            u'\{',
+            '{':                                            u'\{',
             '}':                                            u'\}',
             " ''":                                          u" ``",
             " '":                                           u" `",
@@ -39,7 +40,7 @@ def sanitize(texs, istex=None):
             "&amp;":                                        u"&",
             "amp;":                                         u''
             }
-    
+
     for orig, repl in cust.iteritems():
         texs = texs.replace(orig, repl)
     if not istex:  # text only
@@ -54,6 +55,7 @@ def token_url(text, fn=False):
     placed in a footnote underneath the abstract. It also makes sure
     that certain stylistic clashes are omitted, for example a colon
     before the footnote number.
+
     :param text: str unicode text
     :return: str with footnoted URLs
     """
@@ -80,14 +82,13 @@ def format_ref(refs, label):
     cleaned out version of the references. Custom part had to be
     implemented because one of the references was split up by
     newlines within references.
+
     :param refs: str unicode text snippet with \n splittable refs
     :param label: here sec:title is used to pageref to the abstract
     :return: None (adds to global bib)
     """
     global bib
     refs = refs.split('\n')
-    # TODO: find a way to handle the custom line better
-    refs = list(' '.join(refs)) if 'Ramage' in ' '.join(refs) else refs  # custom!
     for n in refs:
         if len(n) > 10:
             n = n[1:] if n.startswith(' ') else n
@@ -100,6 +101,7 @@ def format_text(text, title):
     Finds the boundary between the list of references and the
     abstract text, will provide a label for the abstract, and
     pipe the found references towards format_ref function.
+
     :param text: the abstracts text, including refs
     :param title: the title of the abstract
     :return: str unicode with the abstract text and label, no refs
@@ -119,6 +121,7 @@ def format_toc(tit, name_l):
     Accepts title and list of tuples with names from the authors
     of the abstract, and will convert these into a formatted unicode
     LaTeX toc entry.
+
     :param tit: str unicode abstract title (no linebreaks)
     :param name_l: list str with authors
     :return: str unicode ToC entry for the abstract
@@ -141,6 +144,7 @@ def check_prio(tl):
     """
     Checks if there is a character in the title which has priority
     as being a split marker.
+
     :param tl: str unicode title of the abstract
     :return: int index of the priority if exists, else None
     """
@@ -160,6 +164,7 @@ def format_title(title):
     the inputted title. Please be aware that this is font/point/
     page specific as it will incorporate length. 62 < len(title)
     < 96. Will try to figure out some variables for this.
+
     :param title: str title without any breaks (yet)
     :return: 'intelligently' splitted title for LaTeX
     """
@@ -183,6 +188,7 @@ def lower_dutch_prep(surename):
     """
     Converts 'incorrectly' capitalized Dutch surenames to a more
     conistent format.
+
     :param surename:
     :return:
     """
@@ -197,6 +203,7 @@ def lower_dutch_prep(surename):
 def format_name(name):
     """
     Joins and formats name with index. Might be superflous.
+
     :param name: tup with (first, last) name.
     :return: str joined name with index reference
     """
@@ -208,6 +215,7 @@ def author_tab(bottom=False):
     """
     Outputs table that is utilized to properly format the list
     of authors, neatly centered, in the abstract.
+
     :param bottom: bool want the bottom part of the table?
     :return: str part of the author table
     """
@@ -228,6 +236,7 @@ def format_table(namel, afil, maill):
     is chosen to keep positioning the authors with two in a row,
     until there is only one left, that one will be centered in
     a new table with an allignment of only one {c}.
+
     :param namel: list with full author names in str format
     :param afil: list with author affiliations in str format
     :param maill: list with contact emails in str format
@@ -266,6 +275,7 @@ def agt(a, c):
     """
     Formats the table for the agenda, in landscape, and uses set-
     lenght to center.
+
     :param a: str the alignments and borders for the table in
               LaTeX format
     :param c: list of str with table lines constructed in
@@ -298,6 +308,7 @@ def get_agenda(d):
     incorporated which makes it an ugly-ass function, please make
     sure to generalize and split into two seperate output functions,
     using markdown as a base or something.
+
     :param d: dict with int(id): tup(authors, title)
     :return: str agenda in a LaTeX table
     """
@@ -319,7 +330,8 @@ def get_agenda(d):
                 rooml.append(inf["room"])
                 block_m.append(inf["blocks"])
             lin.append('\\midrule \n \\textbf{%s} & %s \\\\ \n %s & \\textbf{%s} \\\\' % (event["name"], ' & '.join(rooml), event["time"], '} & \\textbf{'.join(namel)))
-            ltml.append('<tr><td><b>%s</b></td><td>%s</td></tr>\n<tr><td>%s</td><td><b>%s</b></td></tr> \n' % (event["name"], '</td><td>'.join(rooml), event["time"], '</b></td><td><b>'.join(namel)))
+            ltml.append('<tr><td><b>%s</b></td><td>%s</td></tr>\n<tr><td>%s</td><td><b>%s</b></td></tr> \n' %
+                        (event["name"], '</td><td>'.join(rooml), event["time"], '</b></td><td><b>'.join(namel)))
             for i in range(0, len(block_m)-1):
                 lin.append('\\midrule\n')
                 row = [' \\newline '.join(d[block_m[j][i]]) for j in range(0, len(block_m))]
@@ -339,6 +351,7 @@ def get_refs():
     Constructs the references from an itemized LaTeX list with
     pagerefs and the _raw_ references extracted from the
     abstracts in format_text, put in bib.
+
     :return: str LaTeX list of references
     """
     global bib
@@ -355,6 +368,7 @@ def clean_info(title, namel):
     """
     This will format the title and authors for the conference
     programme in the desired format.
+
     :param title: str abstract title
     :param namel: str author names
     :return: str LaTeX conference programme info
@@ -373,6 +387,7 @@ def tex(ti, tr, na, te):
     centered figure with a title, a block for page and ToC
     reference, a table of authors, and the content of the
     abstract.
+
     :param ti: str title with // for breaks
     :param tr: str list with pagerefs and custom
                toc entries from format_toc
@@ -382,6 +397,7 @@ def tex(ti, tr, na, te):
     """
     return '''
     \\newpage
+
     \\begin{figure}[t!]
     \\centering
     \\large\\textbf{%s}
@@ -410,12 +426,13 @@ def agd_to_html(lin):
     o = open('./abstracts.html', 'ab+')
     o.write('\n'.join(lin).encode('utf-8'))
 
+
 def html_abst(aid, title, authors, abstract):
     return """
         <a name="%s">
         <div style="background-color: #411939; color: white; padding-left: 5px;">
             <h4>%s</h4>
-            %s 
+            %s
         </div>
         %s \n\n""" % (aid, title, authors, abstract)
 
@@ -426,44 +443,47 @@ def xml_to_html(d):
     for aid, infl in d.iteritems():
         o.write(html_abst(str(aid), infl[0], ', '.join(infl[1]), infl[2]).encode("utf-8"))
 
-def parse_one(submission):
-
-	submission_id = int(submission.attrib['id'])
-    # keywords = [k.text for k in submission[1]]
-    decision = submission[3].text
-    title = format_title(submission[0].text)
-    names = [(sanitize(entry[0].text), lower_dutch_prep(entry[1].text)) for entry in submission[4]]
-    namel = [(sanitize(entry[0].text) + ' ' + lower_dutch_prep(entry[1].text)) for entry in submission[4]]
-    afilliations = [sanitize(entry[3].text) for entry in submission[4]]
-    mails = [(sanitize(entry[2].text) if entry[2].text else '') for entry in submission[4]]
-
-    abstract = tex(title, format_text(submission[2].text, title),
-             format_toc(title, names), format_table(names, afilliations, mails))
-
-    # abstract_dict[submission[0].text] = (decision, abstract)
-    # agenda_dict[submission_id] = (clean_info(title, namel))  # TODO: clean that out earlier
-    # html_dict[submission_id] = [submission[0].text, namel, submission[2].text.replace('\n', '<br/>')]
 
 def main():
 
-    tree = ET.parse('abstracts.xml')
+    tree = ET.parse('../static/abstracts.xml')
     submissions = tree.getroot()
     abstract_dict, agenda_dict, html_dict = {}, {}, {}
 
-    for submission in submissions: 
-        if not 'REJECT' in submission[3].text and int(submission.attrib['id']) not in retr:
-        	parse_one(submission)
+    for submission in submissions:
+        if 'REJECT' not in submission[3].text and int(submission.attrib['id']) not in retr:
+
+            submission_id = int(submission.attrib['id'])
+            # keywords = [k.text for k in submission[1]]
+            decision = submission[3].text
+            title = format_title(submission[0].text)
+            names = [(sanitize(entry[0].text), lower_dutch_prep(entry[1].text)) for entry in submission[4]]
+            namel = [(sanitize(entry[0].text) + ' ' + lower_dutch_prep(entry[1].text)) for entry in submission[4]]
+            afilliations = [sanitize(entry[3].text) for entry in submission[4]]
+            mails = [(sanitize(entry[2].text) if entry[2].text else '') for entry in submission[4]]
+
+            abstract = tex(title, format_text(submission[2].text, title),
+                           format_toc(title, names), format_table(names, afilliations, mails))
+
+            abstract_dict[submission[0].text] = (decision, abstract)
+            agenda_dict[submission_id] = (clean_info(title, namel))  # TODO: clean that out earlier
+            html_dict[submission_id] = [submission[0].text, namel, submission[2].text.replace('\n', '<br/>')]
+            for entry in retr:  # TODO: check if this is still needed
+                agenda_dict[entry] = ('', '')
 
     key, pres, demo, post = divide_abstracts(abstract_dict)
-    with open('./tex/bos_i.tex', 'r') as i:
-        o = open('./tex/bos_o.tex', 'w')
+    with open('../tex/bos_i.tex', 'r') as i:
+        o = open('../tex/bos_o.tex', 'w')
         i = i.read()
-        i = i.replace('% agenda', get_agenda(agenda_dict).encode("utf-8"))      
-        i = i.replace('% keynote', '\n'.join(key).encode("utf-8"))
+        # i = i.replace('% agenda', get_agenda(agenda_dict).encode("utf-8"))
+        # i = i.replace('% keynote', '\n'.join(key).encode("utf-8"))
         i = i.replace('% presentations', '\n'.join(pres).encode("utf-8"))
-        i = i.replace('% demos', '\n'.join(demo).encode("utf-8"))
-        i = i.replace('% posters', '\n'.join(post).encode("utf-8"))
-        i = i.replace('% refl', get_refs().encode("utf-8"))
+        # i = i.replace('% demos', '\n'.join(demo).encode("utf-8"))
+        # i = i.replace('% posters', '\n'.join(post).encode("utf-8"))
+        # i = i.replace('% refl', get_refs().encode("utf-8"))
         o.write(i)
         o.close()
     xml_to_html(html_dict)
+
+if __name__ == '__main__':
+    main()
