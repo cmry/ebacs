@@ -11,16 +11,22 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="title" class="col-lg-2 control-label">Title</label>
+              <label for="name" class="col-lg-2 control-label">Name</label>
+              <div class="col-lg-10">
+                <input class="form-control" name="name" value="{{var['name']}}" type="text"></input>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="title" class="col-lg-2 control-label">Project</label>
               <div class="col-lg-10">
                 <input class="form-control" name="title" value="{{var['title']}}" type="text"></input>
               </div>
             </div>
             <div class="form-group">
-              <label for="authors" class="col-lg-2 control-label">Authors</label>
+              <label for="authors" class="col-lg-2 control-label">Supervisors</label>
               <div class="col-lg-10">
                 <input class="form-control" name="authors" value="{{var['authors']}}" type="text"></input>
-                <span class="help-block">Add an asterisk to the name of the corresponding author. Please use ; (semicolon) as a delimiter where the example does.</span>
+                <!--<span class="help-block">Add an asterisk to the name of the corresponding author. Please use ; (semicolon) as a delimiter where the example does.</span>-->
               </div>
             </div>
             <div class="form-group">
@@ -30,10 +36,16 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="contact" class="col-lg-2 control-label">Contact</label>
+              <label for="contact" class="col-lg-2 control-label">E-mail</label>
               <div class="col-lg-10">
                 <input class="form-control" name="contact" value="{{var['contact']}}" type="text"></input>
-                <span class="help-block">Use the same order as the authors for both affiliations and contact.</span>
+                <!--<span class="help-block">Use the same order as the authors for both affiliations and contact.</span>-->
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="title" class="col-lg-2 control-label">Website</label>
+              <div class="col-lg-10">
+                <input class="form-control" name="site" placeholder="A website of your project (if any)" type="text"></input>
               </div>
             </div>
             <div class="form-group">

@@ -6,36 +6,48 @@
           <fieldset>
             <legend>New Abstract</legend>
             <div class="form-group">
-              <label for="title" class="col-lg-2 control-label">Title</label>
+              <label for="name" class="col-lg-2 control-label">Name</label>
               <div class="col-lg-10">
-                <input class="form-control" name="title" placeholder="This is an Example Title Format" type="text"></input>
+                <input class="form-control" name="name" placeholder="Your name" type="text"></input>
               </div>
             </div>
             <div class="form-group">
-              <label for="authors" class="col-lg-2 control-label">Authors</label>
+              <label for="title" class="col-lg-2 control-label">Project</label>
               <div class="col-lg-10">
-                <input class="form-control" name="authors" placeholder="John Doe*; Marie Doe; Will Doe" type="text"></input>
-                <span class="help-block">Add an asterisk to the name of the corresponding author. Please use ; (semicolon) as a delimiter where the example does.</span>
+                <input class="form-control" name="title" placeholder="Title of your PhD project" type="text"></input>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="authors" class="col-lg-2 control-label">Supervisors</label>
+              <div class="col-lg-10">
+                <input class="form-control" name="authors" placeholder="Names of your supervisors" type="text"></input>
+              <!--  <span class="help-block">Add an asterisk to the name of the corresponding author. Please use ; (semicolon) as a delimiter where the example does.</span>-->
               </div>
             </div>
             <div class="form-group">
               <label for="affils" class="col-lg-2 control-label">Affiliations</label>
               <div class="col-lg-10">
-                <input class="form-control" name="affils" placeholder="CLiPS, University of Antwerp; TiCC, Tilburg University; etc." type="text"></input>
+                <input class="form-control" name="affils" placeholder="TiCC and/or any other affiliations" type="text"></input>
               </div>
             </div>
             <div class="form-group">
-              <label for="contact" class="col-lg-2 control-label">Contact</label>
+              <label for="contact" class="col-lg-2 control-label">E-mail</label>
               <div class="col-lg-10">
-                <input class="form-control" name="contact" placeholder="mail@email.com; mail2@email.com; etc." type="text"></input>
-                <span class="help-block">Use the same order as the authors for both affiliations and contact.</span>
+                <input class="form-control" name="contact" placeholder="mail@tilburguniversity.edu OR mail@uvt.nl" type="text"></input>
+              <!--  <span class="help-block">Use the same order as the authors for both affiliations and contact.</span>-->
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="title" class="col-lg-2 control-label">Website</label>
+              <div class="col-lg-10">
+                <input class="form-control" name="site" placeholder="A website of your project (if any)" type="text"></input>
               </div>
             </div>
             <div class="form-group">
               <label for="text" class="col-lg-2 control-label">Abstract</label>
               <div class="col-lg-10">
-                <textarea class="form-control" rows="10" name="text" placeholder="Abstract text. Please do not break sentences with a newline, or use \ (backslash) in running text; your abstract might not compile."></textarea>
-                <span class="help-block">You can provide references in a non-square bracket notation as such: <br /><br />abstract text...<br /><br />References:<br />first reference<br />second reference<br />etc.</span>
+                <textarea class="form-control" rows="10" name="text" placeholder="Abstract text.&#10;&#10;Please do not break sentences with a newline, or use \ (backslash) in running text; your abstract might not compile.&#10;&#10;Please avoid using references, we promise not to reject your abstract."></textarea>
+                <!--<span class="help-block">You can provide references in a non-square bracket notation as such: <br /><br />abstract text...<br /><br />References:<br />first reference<br />second reference<br />etc.</span>-->
               </div>
             </div>
               <!--

@@ -551,8 +551,9 @@ h2 code,h3 code,h4 code{
 
 @media (min-width:768px){
     .bs-docs-masthead{
-        background-image:url("http://bpox.be/onewebstatic/1c9de8ea1f-Antwerpen%20poster%20600x1800.jpg");
+        background-image:url("../static/logox.jpg");
         background-position:center top;
+        background-size:cover;
         background-repeat:no-repeat;
         padding:140px 0
     }

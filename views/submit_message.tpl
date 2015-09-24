@@ -3,9 +3,9 @@
     <div class="col-lg-6 col-lg-offset-3">
       <div class="well bs-component">
         <form class="form-horizontal" action="/view" method="post">
-          <legend>Succes!</legend>
+          <legend>Thank you!</legend>
           <div class="alert alert-dismissible alert-info">
-            Your submission has been approved! The key noted below is your reference code. Store it <strong>carefully</strong>, as you will need it to view and edit your abstract from now on!
+            Your submission has been received! Please keep the reference code below: you can use it to view or edit your abstract later!
           </div>
             <div class="form-group">
               <div class="col-lg-10">

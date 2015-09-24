@@ -38,10 +38,12 @@ def submit():
                           settings['salt'])
     subm = Submission({
         'reference_code': reference_code,
+        'name': post_get('name'),
         'title': post_get('title'),
         'authors': post_get('authors'),
         'affiliations': post_get('affils'),
         'contact': post_get('contact'),
+        'site': post_get('site'),
         'text': post_get('text'),
         'references': post_get('ref'),
         'figurl': post_get('figurl'),
@@ -162,10 +164,12 @@ def edit():
         db.delete(subm)
         new_subm = Submission({
             'reference_code': int(reference_code),
+            'name': post_get('name'),
             'title': post_get('title'),
             'authors': post_get('authors'),
             'affiliations': post_get('affils'),
             'contact': post_get('contact'),
+            'site': post_get('site'),
             'text': post_get('text'),
             'references': post_get('ref'),
             'figurl': post_get('figurl'),
@@ -173,7 +177,6 @@ def edit():
             'caption': post_get('caption')
         })
         db.save(new_subm)
-        tex_parse(new_subm)
         return skeleton(bottle.template('submit_message', var=reference_code))
     else:
         return "Something went wrong..."

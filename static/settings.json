@@ -1,8 +1,8 @@
 {
-    "conference_name": "TMAC'99",
+    "conference_name": "TiCC PhD Day 2015",
     "conference_subtitle": "",
     "location": "The Village",
     "database_location": "./my_db",
-    "basedir": "/home/chris/Documents/ebacs/",
+    "basedir": "/home/yevgen_m/Dropbox/github/ebacs/",
     "salt": "thisisalongenoughslatcombinationasanexamplenoneedtorememberitanyways"
 }
