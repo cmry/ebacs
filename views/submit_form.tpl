@@ -44,7 +44,7 @@
             <div class="form-group">
               <label for="text" class="col-lg-2 control-label">Abstract</label>
               <div class="col-lg-10">
-                <textarea class="form-control" rows="10" name="text" placeholder="Abstract text. Please do not break sentences with a newline, and do not use \ (backslash) in running text; your abstract might not compile."></textarea>
+                <textarea class="form-control" rows="10" name="text" placeholder="Abstract text, 200-300 words.&#10;&#10;Please do not break sentences with a newline, or use \ (backslash) in running text; your abstract might not compile.&#10;&#10;Please avoid using references, we promise not to reject your abstract."></textarea>
               </div>
             </div>
               <!--
