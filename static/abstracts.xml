@@ -1,68 +1,5 @@
                    <submissions>  
                         <submission id="1">
-                            <title>derp</title>
-                            <keywords>
-                                <keyword>submission</keyword>
-                            </keywords>
-                            <abstract>some stuff</abstract>
-                            <decision>presentation</decision>
-                            <authors>
-                                 <author>
-                                            
-                                            <first_name> derp </first_name>
-                                            <last_name> stuff, derp more </last_name>
-                                            <e-mail> mymail@mail.com </e-mail>
-                                            <affiliation> derp </affiliation>
-                                            <contact> Somewhere </contact>
-                            
-                                        </author>
-                        
-                            </authors>
-                        </submission>
-                        
-                        <submission id="2">
-                            <title>derp</title>
-                            <keywords>
-                                <keyword>submission</keyword>
-                            </keywords>
-                            <abstract>some stuff</abstract>
-                            <decision>presentation</decision>
-                            <authors>
-                                 <author>
-                                            
-                                            <first_name> derp </first_name>
-                                            <last_name> stuff, derp more </last_name>
-                                            <e-mail> mymail@mail.com </e-mail>
-                                            <affiliation> derp </affiliation>
-                                            <contact> Somewhere </contact>
-                            
-                                        </author>
-                        
-                            </authors>
-                        </submission>
-                        
-                        <submission id="3">
-                            <title>Some title</title>
-                            <keywords>
-                                <keyword>submission</keyword>
-                            </keywords>
-                            <abstract>It works!</abstract>
-                            <decision>presentation</decision>
-                            <authors>
-                                 <author>
-                                            
-                                            <first_name> Chris </first_name>
-                                            <last_name> Doe </last_name>
-                                            <e-mail> ayy@mail.com </e-mail>
-                                            <affiliation> CLiPS </affiliation>
-                                            <contact> Somewhere </contact>
-                            
-                                        </author>
-                        
-                            </authors>
-                        </submission>
-                        
-                        <submission id="4">
                             <title>crap</title>
                             <keywords>
                                 <keyword>submission</keyword>
@@ -74,7 +11,7 @@
                                             
                                             <first_name> crap </first_name>
                                             <last_name>  </last_name>
-                                            <e-mail> crap@crap.com </e-mail>
+                                            <e-mail> crap </e-mail>
                                             <affiliation> crap </affiliation>
                                             <contact> Somewhere </contact>
                             

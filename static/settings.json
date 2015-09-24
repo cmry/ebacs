@@ -3,6 +3,6 @@
     "conference_subtitle": "",
     "location": "The Village",
     "database_location": "./my_db",
-    "basedir": "/home/user/somedir/ebacs/",
+    "basedir": "/home/chris/Documents/ebacs/",
     "salt": "thisisalongenoughslatcombinationasanexamplenoneedtorememberitanyways"
 }
