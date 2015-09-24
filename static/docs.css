@@ -520,7 +520,7 @@ h2 code,h3 code,h4 code{
 
 .bs-docs-masthead h1{
     font-weight:bolder;    
-    line-height:1;
+    line-height:0.1;
     color:#000000
 }
 
