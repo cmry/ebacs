@@ -41,6 +41,7 @@ def submit():
         'name': post_get('name'),
         'title': post_get('title'),
         'authors': post_get('authors'),
+        'supervisor': post_get('supervisor'),
         'affiliations': post_get('affils'),
         'contact': post_get('contact'),
         'site': post_get('site'),
@@ -98,9 +99,11 @@ def compile():
                         """ % (str(i), entry.title, entry.text,
                                dummy_decision)
             dummy_country = "Somewhere"
-            for author, affil, contact in zip(entry.authors.split('; '),
-                                              entry.affiliations.split('; '),
-                                              entry.contact.split('; ')):
+            for author, affil, contact, supv, site in zip(entry.authors.split('; '),
+                                                          entry.affiliations.split('; '),
+                                                          entry.contact.split('; '),
+                                                          entry.supervisor.split('; '),
+                                                          entry.site.split('; ')):
                 author_l = author.split()
                 author_first = author_l.pop(0)  # assumes only 1 first name
                 author_second = ' '.join(author_l)
@@ -112,7 +115,7 @@ def compile():
                                             <e-mail> %s </e-mail>
                                             <affiliation> %s </affiliation>
                                             <contact> %s </contact>
-                            """ % (author_first, author_second, contact, affil,
+                            """ % (author_first, author_second, contact + " - " + site, "Supervisor - " + supv + " \\\\ " + affil,
                                    dummy_country)
                 subm_str += """         <author>
                                             %s

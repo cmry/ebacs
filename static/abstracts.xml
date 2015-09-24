@@ -1,18 +1,18 @@
                    <submissions>  
                         <submission id="1">
-                            <title>Usage-based stuff</title>
+                            <title>This is a Title</title>
                             <keywords>
                                 <keyword>submission</keyword>
                             </keywords>
-                            <abstract>345 3tgr 34</abstract>
+                            <abstract>crap</abstract>
                             <decision>presentation</decision>
                             <authors>
                                  <author>
                                             
-                                            <first_name> Afra </first_name>
-                                            <last_name> Alishahi, A. M. Backus </last_name>
-                                            <e-mail> a@uvt.nl </e-mail>
-                                            <affiliation> TiCC </affiliation>
+                                            <first_name> John </first_name>
+                                            <last_name> Doe </last_name>
+                                            <e-mail> mymail@mail.com - www.someurl.com </e-mail>
+                                            <affiliation> Supervisor - Supervisor \\ TiCC, Some stuff </affiliation>
                                             <contact> Somewhere </contact>
                             
                                         </author>

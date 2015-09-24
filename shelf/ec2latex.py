@@ -45,7 +45,7 @@ def sanitize(texs, istex=None):
         texs = texs.replace(orig, repl)
     if not istex:  # text only
         texs = texs.replace('\n', ' ')
-        texs = token_url(texs, True)
+        # texs = token_url(texs, True)
     return texs
 
 
@@ -92,7 +92,7 @@ def format_ref(refs, label):
     for n in refs:
         if len(n) > 10:
             n = n[1:] if n.startswith(' ') else n
-            n = token_url(n)
+            # n = token_url(n)
             bib[(hash(n), label)] = n
 
 
@@ -251,7 +251,7 @@ def format_table(namel, afil, maill):
                 ntab = author_tab(True) + ntab
             ntab += author_tab(True)
             name_e = format_name(namel.pop(0))
-            ta = "%s \\\\ {%s} \\\\ {\\texttt{%s}} \\\\" % (name_e, afil.pop(0), maill.pop(0))
+            ta = "%s \\\\ %s \\\\ {\\texttt{%s}} \\\\" % (name_e, afil.pop(0), maill.pop(0))
             al = 'c'
         else:
             name_e1 = format_name(namel.pop(0))
@@ -477,7 +477,7 @@ def main():
         i = i.read()
         # i = i.replace('% agenda', get_agenda(agenda_dict).encode("utf-8"))
         # i = i.replace('% keynote', '\n'.join(key).encode("utf-8"))
-        i = i.replace('% presentations', '\n'.join(pres).encode("utf-8"))
+        i = i.replace('% abstracts', '\n'.join(pres).encode("utf-8"))
         # i = i.replace('% demos', '\n'.join(demo).encode("utf-8"))
         # i = i.replace('% posters', '\n'.join(post).encode("utf-8"))
         # i = i.replace('% refl', get_refs().encode("utf-8"))
